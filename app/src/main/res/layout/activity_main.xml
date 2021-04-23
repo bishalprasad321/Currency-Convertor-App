@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/inputCuurency"
+        android:id="@+id/inputCurrency"
         android:layout_width="280dp"
         android:layout_height="45dp"
         android:layout_marginStart="54dp"
@@ -48,7 +48,6 @@
         android:layout_marginTop="39dp"
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
-        android:onClick="currencyConvert"
         android:text="@string/convert"
         android:textSize="18sp"
         app:backgroundTint="#F44336"
@@ -72,6 +71,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputCuurency" />
+        app:layout_constraintTop_toBottomOf="@+id/inputCurrency" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

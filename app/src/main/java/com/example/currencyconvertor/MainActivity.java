@@ -2,11 +2,13 @@ package com.example.currencyconvertor;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.assist.AssistStructure;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,15 +16,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+        Button convertorButton = findViewById(R.id.button);
+        EditText inputCurrency = findViewById(R.id.inputCurrency);
+        TextView outputCurrency = findViewById(R.id.outputCurrency);
 
-    public void currencyConvert (View view){
-        EditText inputCurrency = (EditText) findViewById(R.id.inputCuurency);
-        TextView outputCurrency = (TextView) findViewById(R.id.outputCurrency);
-        String dollarCurrency = inputCurrency.getText().toString();
-        double usdDollarCurrency = Double.parseDouble(dollarCurrency);
-        double indianRupee = usdDollarCurrency*75.35;
-//        String indianRupeeCurrency = String.valueOf(indianRupee);
-        outputCurrency.setText(String.format("₹ %.2f", indianRupee));
+        convertorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (TextUtils.isEmpty(inputCurrency.getText().toString())){
+                    Toast.makeText(MainActivity.this, "Please Enter a Value Amount", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    String dollarCurrency = inputCurrency.getText().toString();
+                    double usdDollarCurrency = Double.parseDouble(dollarCurrency);
+                    double indianRupee = usdDollarCurrency*75.35;
+                    outputCurrency.setText(String.format("₹ %.2f", indianRupee));
+                }
+            }
+        });
     }
 }
